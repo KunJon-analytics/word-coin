@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import Init from "@/components/twa/init";
 
 import "./globals.css";
 
@@ -23,6 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Init />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
