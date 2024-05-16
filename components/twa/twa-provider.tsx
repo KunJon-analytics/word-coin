@@ -2,6 +2,7 @@
 
 import { SDKProvider, retrieveLaunchParams } from "@tma.js/sdk-react";
 import React, { useEffect, useMemo } from "react";
+import { TonConnectUIProvider } from "@tonconnect/ui-react";
 
 import TwaTheme from "./twa-theme";
 
@@ -9,9 +10,14 @@ type TwaProviderProps = { children: React.ReactNode };
 
 const TwaProvider = ({ children }: TwaProviderProps) => {
   const debug = useMemo(() => {
-    return typeof window === "undefined"
-      ? false
-      : retrieveLaunchParams().startParam === "debug";
+    if (typeof window === "undefined") {
+      return false;
+    }
+    try {
+      return retrieveLaunchParams().startParam === "debug";
+    } catch (error) {
+      return false;
+    }
   }, []);
   const manifestUrl = useMemo(() => {
     return typeof window === "undefined"
@@ -25,9 +31,11 @@ const TwaProvider = ({ children }: TwaProviderProps) => {
     }
   }, [debug]);
   return (
-    <SDKProvider acceptCustomStyles debug={debug}>
-      <TwaTheme>{children}</TwaTheme>
-    </SDKProvider>
+    <TonConnectUIProvider manifestUrl={manifestUrl}>
+      <SDKProvider acceptCustomStyles debug={debug}>
+        <TwaTheme>{children}</TwaTheme>
+      </SDKProvider>
+    </TonConnectUIProvider>
   );
 };
 

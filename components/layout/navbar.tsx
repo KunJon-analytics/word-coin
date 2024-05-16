@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { TonConnectButton } from "@tonconnect/ui-react";
 
 import { MainNavItem } from "@/types";
 import useScroll from "@/hooks/use-scroll";
-import { Button } from "@/components/ui/button";
 
 import { MainNav } from "./main-nav";
 
@@ -35,9 +34,7 @@ export function NavBar({
         <div className="flex items-center space-x-3">
           {rightElements}
 
-          <Button className="px-3" variant="default" size="sm" asChild>
-            <Link href="/dashboard">Dashboard</Link>
-          </Button>
+          <TonConnectButton className="px-3" />
         </div>
       </div>
     </header>
