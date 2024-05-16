@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import Init from "@/components/twa/init";
+import { fontHeading, fontSans, fontUrban } from "@/assets/fonts";
+import { Toaster } from "@/components/ui/toaster";
+import TwaProvider from "@/components/twa/twa-provider";
 
 import "./globals.css";
-
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,21 +20,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Init />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
+          fontUrban.variable,
+          fontHeading.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <TwaProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+            <Toaster />
+          </ThemeProvider>
+        </TwaProvider>
       </body>
     </html>
   );
