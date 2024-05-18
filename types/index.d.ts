@@ -1,4 +1,5 @@
 import type { Icon } from "lucide-react";
+import { Prisma } from "@prisma/client";
 
 import { Icons } from "@/components/shared/icons";
 
@@ -56,3 +57,12 @@ export interface DashboardNavItem {
   label?: string;
   description?: string;
 }
+
+// also change constants definition
+export type UserReturnType = Prisma.UserGetPayload<{
+  include: {
+    attempts: { include: { guesses: true; round: true } };
+    _count: true;
+    roundsWon: true;
+  };
+}> | null;

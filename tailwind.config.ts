@@ -126,6 +126,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "spin-slow": "spin 10s linear infinite",
         // Fade up and down
         "fade-up": "fade-up 0.5s",
         "fade-down": "fade-down 0.5s",

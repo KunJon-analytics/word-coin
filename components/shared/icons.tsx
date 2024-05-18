@@ -6,6 +6,7 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
+  Copy,
   CreditCard,
   File,
   FileText,
@@ -36,6 +37,8 @@ export type Icon = LucideIcon;
 
 export const Icons = {
   add: Plus,
+  copy: Copy,
+  loading: Loader2,
   arrowRight: ArrowRight,
   billing: CreditCard,
   login: LogIn,

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useInitData, useMiniApp } from "@tma.js/sdk-react";
+import { useMiniApp } from "@tma.js/sdk-react";
 
 import {
   DropdownMenu,
@@ -16,17 +16,28 @@ import ErrorButton from "@/components/shared/error-button";
 import { useMounted } from "@/hooks/use-mounted";
 import { ssrStub } from "@/lib/constants";
 import { Icons } from "@/components/shared/icons";
+import useUser from "@/hooks/use-user";
+import LoadingButton from "@/components/shared/loading-button";
+import { SignInModal } from "@/components/shared/sign-in-modal";
 
 import UserAvatar from "./user-avatar";
 
 export function UserNav() {
-  const initData = useInitData({ ssr: {} });
+  const { isLoading, user, initDataRaw } = useUser();
   const mounted = useMounted();
   const miniApp = useMiniApp({ ssr: ssrStub });
   const router = useRouter();
 
-  if (!initData?.user || !mounted) {
+  if (!initDataRaw || !mounted) {
     return <ErrorButton buttonText="No Telegram" />;
+  }
+
+  if (isLoading) {
+    return <LoadingButton />;
+  }
+
+  if (!user) {
+    return <SignInModal />;
   }
 
   return (
@@ -37,9 +48,9 @@ export function UserNav() {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{`${initData.user.firstName}`}</p>
+            <p className="text-sm font-medium leading-none">{`${user.firstName}`}</p>
             <p className="text-xs leading-none text-muted-foreground">
-              @{initData.user?.username}
+              @{user?.username}
             </p>
           </div>
         </DropdownMenuLabel>
