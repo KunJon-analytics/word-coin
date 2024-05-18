@@ -4,6 +4,8 @@ import { SDKProvider, retrieveLaunchParams } from "@tma.js/sdk-react";
 import React, { useEffect, useMemo } from "react";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
 
+import { siteConfig } from "@/config/site";
+
 import TwaTheme from "./twa-theme";
 
 type TwaProviderProps = { children: React.ReactNode };
@@ -19,11 +21,7 @@ const TwaProvider = ({ children }: TwaProviderProps) => {
       return false;
     }
   }, []);
-  const manifestUrl = useMemo(() => {
-    return typeof window === "undefined"
-      ? ""
-      : new URL("tonconnect-manifest.json", window.location.href).toString();
-  }, []);
+  const manifestUrl = `${siteConfig.url}/tonconnect-manifest.json`;
 
   useEffect(() => {
     if (debug) {

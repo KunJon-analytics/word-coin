@@ -1,0 +1,114 @@
+//if we need full reset :  npx prisma db push --force-reset
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// A user
+model User {
+  /// the unique user id returned by Telegram
+  id          Int    @id
+  /// the user firstname returned by Telegram
+  firstName   String
+  /// user's points accrued for active ecosystem participation 
+  points      Float  @default(0)
+  /// number of games played
+  gamesPlayed Int    @default(0)
+  /// id of user's referrer
+  referrer    Int?
+
+  /// game rounds won by user
+  roundsWon GameRound[]
+  /// game attempts by user
+  attempts  UserAttempt[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([referrer])
+}
+
+/// A `Word Coin` Game Round
+model GameRound {
+  /// the id of the round
+  id    String     @id @default(uuid())
+  /// the word to be found
+  word  String
+  /// the stage of the round
+  stage RoundStage @default(QUEUED)
+
+  /// the winner of the round
+  winner   User? @relation(fields: [winnerId], references: [id])
+  /// the id of the round winner
+  winnerId Int?
+
+  /// attempts by users for this round
+  attempts UserAttempt[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([winnerId])
+}
+
+/// A User attempt at a game round
+model UserAttempt {
+  /// `id`: the id of the user attempt
+  id String @id @default(uuid())
+
+  /// the user
+  user   User @relation(fields: [userId], references: [id])
+  /// the id of the user
+  userId Int
+
+  /// the game round
+  round   GameRound @relation(fields: [roundId], references: [id])
+  /// the id of the game round
+  roundId String
+
+  /// words guessed during this attempt
+  guesses AttemptGuess[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique(name: "attemptId", [userId, roundId])
+  @@index([userId])
+  @@index([roundId])
+}
+
+/// Word guessed by user during attempt
+model AttemptGuess {
+  /// the id of the attempt guess
+  id        String  @id @default(uuid())
+  /// the index of the word guessed
+  index     Int
+  /// the word guessed
+  guess     String
+  /// if the word guessed was correct
+  isCorrect Boolean @default(false)
+  /// a comma delimeter sequence of wordle colors
+  color     String
+
+  /// the attempt where word was guessed
+  attempt   UserAttempt @relation(fields: [attemptId], references: [id])
+  /// the id of the user attempt where word was guessed
+  attemptId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([attemptId])
+}
+
+enum RoundStage {
+  STARTED
+  FINISHED
+  CLAIMED
+  QUEUED
+}

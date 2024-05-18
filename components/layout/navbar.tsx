@@ -4,6 +4,7 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 
 import { MainNavItem } from "@/types";
 import useScroll from "@/hooks/use-scroll";
+import { cn } from "@/lib/utils";
 
 import { MainNav } from "./main-nav";
 
@@ -34,7 +35,9 @@ export function NavBar({
         <div className="flex items-center space-x-3">
           {rightElements}
 
-          <TonConnectButton className="px-3" />
+          <TonConnectButton
+            className={cn("bg-primary text-primary-foreground rounded-full")}
+          />
         </div>
       </div>
     </header>

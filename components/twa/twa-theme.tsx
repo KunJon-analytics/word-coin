@@ -10,6 +10,8 @@ import {
 } from "@tma.js/sdk-react";
 import { useEffect } from "react";
 
+import { ssrStub } from "@/lib/constants";
+
 import BackButtonManipulator from "./back-button-manipulator";
 
 type TwaThemeProps = { children: React.ReactNode };
@@ -17,12 +19,7 @@ type TwaThemeProps = { children: React.ReactNode };
 const TwaTheme = ({ children }: TwaThemeProps) => {
   // As long as this is not really important to specify some valid SSR values here, we are just
   // specifying a stub.
-  const ssrStub = {
-    themeParams: {},
-    version: "7.0",
-    botInline: false,
-    platform: "unknown",
-  };
+
   const miniApp = useMiniApp({ ssr: ssrStub });
   const themeParams = useThemeParams({ ssr: ssrStub });
   const viewport = useViewport({ ssr: ssrStub });
