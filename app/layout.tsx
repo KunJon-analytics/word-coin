@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme/theme-provider";
@@ -39,6 +40,7 @@ export default function RootLayout({
             <Toaster />
           </ThemeProvider>
         </TwaProvider>
+        <Analytics />
       </body>
     </html>
   );
