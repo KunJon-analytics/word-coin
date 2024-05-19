@@ -17,7 +17,7 @@ export const metadata = {
     "Access your dashboard to track referrals, points, and stay on top of the greatest game ever.",
 };
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
   return (
     <ScrollArea className="h-full">
       <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">

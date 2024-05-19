@@ -14,6 +14,7 @@ import GamesPlayed from "./games-played";
 import RoundsWon from "./rounds-won";
 import ClaimButton from "./claim-button";
 import { SignInModal } from "../shared/sign-in-modal";
+import ActiveGameButton from "../shared/active-game-button";
 
 const DashboardTabs = () => {
   const initData = useInitData({ ssr: {} });
@@ -32,7 +33,7 @@ const DashboardTabs = () => {
     <Tabs defaultValue="overview" className="space-y-4">
       <TabsList>
         <TabsTrigger value="overview">Overview</TabsTrigger>
-        <TabsTrigger value="exchange">Exchange</TabsTrigger>
+        <TabsTrigger value="play">Play Now</TabsTrigger>
       </TabsList>
       <TabsContent value="overview" className="space-y-4">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -61,12 +62,10 @@ const DashboardTabs = () => {
           </div>
         </div>
       </TabsContent>
-      <TabsContent value="exchange">
+      <TabsContent value="play">
         <div className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <div className="flex items-center">
-            <h1 className="text-lg font-semibold md:text-2xl">
-              Coming Soon!!!
-            </h1>
+            <ActiveGameButton />
           </div>
         </div>
       </TabsContent>

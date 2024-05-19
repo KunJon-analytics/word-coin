@@ -1,5 +1,5 @@
 import type { Icon } from "lucide-react";
-import { Prisma } from "@prisma/client";
+import { AttemptGuess, Prisma } from "@prisma/client";
 
 import { Icons } from "@/components/shared/icons";
 
@@ -66,3 +66,61 @@ export type UserReturnType = Prisma.UserGetPayload<{
     roundsWon: true;
   };
 }> | null;
+
+export type WordleColor = "grey" | "yellow" | "green";
+
+export type FormattedGuess = {
+  key: string;
+  color: string;
+};
+
+export type UsedKeys = {
+  [k: string]: string;
+};
+
+export type FormatGuessInput = {
+  color: string;
+  guess: string;
+};
+
+export type FormatGuess = (input: AttemptGuess) => FormattedGuess[];
+
+export type GetUsedKeys = (input: (FormattedGuess[] | undefined)[]) => UsedKeys;
+
+export type FormatGuesses = (
+  input: AttemptGuess[]
+) => (FormattedGuess[] | undefined)[];
+
+export type AddNewGuessInput = FormatGuessInput & {
+  formattedGuess: FormattedGuess[];
+  guesses: (FormattedGuess[] | undefined)[];
+  turn: number;
+  usedKeys: UsedKeys;
+  history: string[];
+};
+
+export type AddNewGuessOutput = {
+  isCorrect: boolean;
+  turn: number;
+  guesses: (FormattedGuess[] | undefined)[];
+  usedkeys: UsedKeys;
+  history: string[];
+};
+
+export type AddNewGuess = (input: AddNewGuessInput) => AddNewGuessOutput;
+
+export type GameReturnType = Prisma.UserAttemptGetPayload<{
+  include: {
+    guesses: true;
+    round: {
+      select: {
+        _count: true;
+        createdAt: true;
+        id: true;
+        stage: true;
+        updatedAt: true;
+        winner: { select: { username: true; firstName: true } };
+      };
+    };
+  };
+}>;

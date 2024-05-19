@@ -50,7 +50,7 @@ export function UserNav() {
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">{`${user.firstName}`}</p>
             <p className="text-xs leading-none text-muted-foreground">
-              @{user?.username}
+              points: {user.points}
             </p>
           </div>
         </DropdownMenuLabel>
@@ -63,10 +63,6 @@ export function UserNav() {
           <DropdownMenuItem onClick={() => router.push("/dashboard")}>
             <Icons.dashboard className="mr-2 h-4 w-4" />
             <span>Dashboard</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => router.push("/play")}>
-            <Icons.play className="mr-2 h-4 w-4" />
-            <span>Play</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />

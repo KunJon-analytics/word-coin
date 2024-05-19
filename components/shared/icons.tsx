@@ -30,6 +30,7 @@ import {
   SunMedium,
   Trash,
   User,
+  Medal,
   X,
 } from "lucide-react";
 
@@ -40,6 +41,7 @@ export const Icons = {
   copy: Copy,
   loading: Loader2,
   arrowRight: ArrowRight,
+  medal: Medal,
   billing: CreditCard,
   login: LogIn,
   play: Gamepad2,

@@ -13,10 +13,4 @@ export const dashboardNavItems: DashboardNavItem[] = [
     icon: "dashboard",
     label: "Dashboard",
   },
-  {
-    title: "Play",
-    href: "/play",
-    icon: "play",
-    label: "Play",
-  },
 ];
