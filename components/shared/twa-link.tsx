@@ -17,7 +17,7 @@ export const TwaLink: FC<LinkProps> = ({
   href,
   ...rest
 }) => {
-  const utils = useUtils({ ssr: { version: "7.0" } });
+  const utils = useUtils(true);
 
   const onClick = useCallback<MouseEventHandler<HTMLAnchorElement>>(
     (e) => {
@@ -41,7 +41,7 @@ export const TwaLink: FC<LinkProps> = ({
 
       if (isExternal) {
         e.preventDefault();
-        return utils.openLink(targetUrl.toString());
+        return utils?.openLink(targetUrl.toString());
       }
     },
     [href, propsOnClick, utils]
