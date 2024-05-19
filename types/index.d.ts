@@ -124,3 +124,10 @@ export type GameReturnType = Prisma.UserAttemptGetPayload<{
     };
   };
 }>;
+
+export type LeaderboardUsers = {
+  noOfReferrals: number;
+  firstName: string;
+  username: string | null;
+  createdAt: Date;
+}[];

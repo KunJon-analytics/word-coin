@@ -64,6 +64,10 @@ export function UserNav() {
             <Icons.dashboard className="mr-2 h-4 w-4" />
             <span>Dashboard</span>
           </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => router.push("/referral-task")}>
+            <Icons.users className="mr-2 h-4 w-4" />
+            <span>Referrals</span>
+          </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => miniApp.close()}>

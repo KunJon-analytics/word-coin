@@ -3,8 +3,9 @@ import Balancer from "react-wrap-balancer";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { buttonVariants, Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/shared/icons";
+import ActiveGameButton from "@/components/shared/active-game-button";
 
 export default async function IndexPage() {
   return (
@@ -49,13 +50,9 @@ export default async function IndexPage() {
             className="flex animate-fade-up justify-center space-x-2 opacity-0 md:space-x-4"
             style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
           >
-            <Button className={cn(buttonVariants({ size: "lg" }))} asChild>
-              <Link href={"/dashboard"}>Get started</Link>
-            </Button>
+            <ActiveGameButton />
             <Link
-              href="https://Projectx.com"
-              target="_blank"
-              rel="noreferrer"
+              href="/dashboard"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "px-4"
@@ -63,7 +60,7 @@ export default async function IndexPage() {
             >
               <Icons.chevrondown className="mr-2 h-4 w-4" />
               <p>
-                <span className="hidden sm:inline-block">Lets explore</span>{" "}
+                <span className="hidden sm:inline-block">Your points on</span>{" "}
                 {siteConfig.name}{" "}
               </p>
             </Link>

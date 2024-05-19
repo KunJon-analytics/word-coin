@@ -7,6 +7,7 @@ export const marketingConfig: MarketingConfig = {
       href: "/dashboard",
       // disabled: true,
     },
+    { title: "Referrals", href: "/referral-task" },
     // {
     //   title: "Documentation",
     //   href: "/docs",

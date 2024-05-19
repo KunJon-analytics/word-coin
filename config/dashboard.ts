@@ -13,4 +13,10 @@ export const dashboardNavItems: DashboardNavItem[] = [
     icon: "dashboard",
     label: "Dashboard",
   },
+  {
+    title: "Referrals",
+    href: "/referral-task",
+    icon: "users",
+    label: "Referrals",
+  },
 ];

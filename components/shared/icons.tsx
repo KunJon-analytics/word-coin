@@ -32,6 +32,7 @@ import {
   User,
   Medal,
   X,
+  Users,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -39,6 +40,7 @@ export type Icon = LucideIcon;
 export const Icons = {
   add: Plus,
   copy: Copy,
+  users: Users,
   loading: Loader2,
   arrowRight: ArrowRight,
   medal: Medal,
