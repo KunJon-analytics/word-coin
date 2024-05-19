@@ -1,6 +1,7 @@
-import { useLaunchParams } from "@tma.js/sdk-react";
+import { retrieveLaunchParams } from "@tma.js/sdk-react";
 import useSWR from "swr";
 import useSWRMutation from "swr/mutation";
+import { useMemo } from "react";
 
 import { GameReturnType } from "@/types";
 import { fetchJson } from "@/lib/utils";
@@ -31,8 +32,10 @@ async function submitPlay(
 }
 
 function useGame(roundId: string) {
-  const initDataRaw = useLaunchParams().initDataRaw;
   const mounted = useMounted();
+  const initDataRaw = useMemo(() => {
+    return mounted ? retrieveLaunchParams().initDataRaw : "";
+  }, [mounted]);
 
   const { data, error, isLoading } = useSWR(
     initDataRaw && mounted ? [gameApiRoute, roundId, initDataRaw] : null,

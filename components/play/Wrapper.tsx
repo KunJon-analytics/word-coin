@@ -1,6 +1,7 @@
 "use client";
 
 import { formatDistance } from "date-fns";
+import { useInitData } from "@tma.js/sdk-react";
 
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -18,11 +19,21 @@ type CardProps = React.ComponentProps<typeof Card> & {
 
 export function Wrapper({ className, roundId, ...props }: CardProps) {
   const { game: wordleData, isLoading, isError } = useGame(roundId);
+  const initData = useInitData(true);
   const mounted = useMounted();
   const winner =
     wordleData?.round.winner?.username ||
     wordleData?.round.winner?.firstName ||
     "No winner";
+
+  if (!initData || !mounted) {
+    return (
+      <PlayCard
+        cardTitle="Error"
+        message="There was an error while fetching the data"
+      />
+    );
+  }
 
   if (isLoading || !mounted) {
     return <LoadingSkeleton />;

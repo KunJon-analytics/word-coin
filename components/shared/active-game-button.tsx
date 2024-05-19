@@ -17,9 +17,11 @@ const ActiveGameButton = () => {
   }
 
   if (activeGame) {
-    <Button onClick={() => router.push(`/play/${activeGame.id}`)}>
-      Play Now
-    </Button>;
+    return (
+      <Button onClick={() => router.push(`/play/${activeGame.id}`)}>
+        Play Now
+      </Button>
+    );
   }
 
   return (

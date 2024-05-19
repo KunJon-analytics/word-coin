@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import ErrorButton from "@/components/shared/error-button";
 import { useMounted } from "@/hooks/use-mounted";
-import { ssrStub } from "@/lib/constants";
 import { Icons } from "@/components/shared/icons";
 import useUser from "@/hooks/use-user";
 import LoadingButton from "@/components/shared/loading-button";
@@ -23,12 +22,12 @@ import { SignInModal } from "@/components/shared/sign-in-modal";
 import UserAvatar from "./user-avatar";
 
 export function UserNav() {
-  const { isLoading, user, initDataRaw } = useUser();
+  const { isLoading, user } = useUser();
   const mounted = useMounted();
-  const miniApp = useMiniApp({ ssr: ssrStub });
+  const miniApp = useMiniApp(true);
   const router = useRouter();
 
-  if (!initDataRaw || !mounted) {
+  if (!miniApp || !mounted) {
     return <ErrorButton buttonText="No Telegram" />;
   }
 

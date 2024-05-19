@@ -7,17 +7,17 @@ import { useEffect } from "react";
 const BackButtonManipulator = () => {
   const { back } = useRouter();
   const pathname = usePathname();
-  const bb = useBackButton({ ssr: { version: "7.0" } });
+  const bb = useBackButton(true);
 
   useEffect(() => {
     if (pathname === "/") {
-      bb.hide();
+      bb?.hide();
     } else {
-      bb.show();
+      bb?.show();
     }
   }, [pathname, bb]);
 
-  useEffect(() => bb.on("click", back), [bb, back]);
+  useEffect(() => bb?.on("click", back), [bb, back]);
 
   return null;
 };

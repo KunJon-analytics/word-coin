@@ -15,14 +15,19 @@ import RoundsWon from "./rounds-won";
 import ClaimButton from "./claim-button";
 import { SignInModal } from "../shared/sign-in-modal";
 import ActiveGameButton from "../shared/active-game-button";
+import { LoadingSkeleton } from "../shared/loading";
 
 const DashboardTabs = () => {
-  const initData = useInitData({ ssr: {} });
-  const { user } = useUser();
+  const initData = useInitData(true);
+  const { user, isLoading } = useUser();
   const mounted = useMounted();
 
   if (!initData || !mounted) {
     return <ErrorButton buttonText="Ivalid Telegram User" />;
+  }
+
+  if (isLoading) {
+    return <LoadingSkeleton />;
   }
 
   if (!user) {

@@ -6,7 +6,7 @@ import { useInitData } from "@tma.js/sdk-react";
 import { useMounted } from "@/hooks/use-mounted";
 
 const Testing = () => {
-  const test = useInitData({ ssr: {} });
+  const test = useInitData();
   const mounted = useMounted();
 
   return (

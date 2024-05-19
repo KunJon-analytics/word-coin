@@ -29,7 +29,7 @@ type Props = {
 
 const ReferralClient = ({ users }: Props) => {
   const { user, isError, isLoading } = useUser();
-  const initData = useInitData({ ssr: {} });
+  const initData = useInitData(true);
   const mounted = useMounted();
 
   if (!initData || !mounted) {

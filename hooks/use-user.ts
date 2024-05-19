@@ -1,9 +1,12 @@
-import { useLaunchParams } from "@tma.js/sdk-react";
+import { retrieveLaunchParams } from "@tma.js/sdk-react";
 import useSWR from "swr";
 import useSWRMutation from "swr/mutation";
+import { useMemo } from "react";
 
 import { UserReturnType } from "@/types";
 import { fetchJson } from "@/lib/utils";
+
+import { useMounted } from "./use-mounted";
 
 const userApiRoute = "/api/user/me";
 
@@ -25,7 +28,10 @@ async function doLogin([url, token]: [string, string]) {
 }
 
 function useUser() {
-  const initDataRaw = useLaunchParams().initDataRaw;
+  const mounted = useMounted();
+  const initDataRaw = useMemo(() => {
+    return mounted ? retrieveLaunchParams().initDataRaw : "";
+  }, [mounted]);
 
   const { data, error, isLoading } = useSWR(
     initDataRaw ? [userApiRoute, initDataRaw] : null,
