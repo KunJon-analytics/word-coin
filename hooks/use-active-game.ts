@@ -11,7 +11,9 @@ async function getActiveGame(url: string) {
 }
 
 function useActiveGame() {
-  const { data, error, isLoading } = useSWR(gameApiRoute, getActiveGame);
+  const { data, error, isLoading } = useSWR(gameApiRoute, getActiveGame, {
+    refreshInterval: 120000,
+  });
 
   return {
     activeGame: data,
