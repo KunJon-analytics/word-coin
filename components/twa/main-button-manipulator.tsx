@@ -13,18 +13,19 @@ const MainButtonManipulator = ({
   buttonText,
 }: MainButtonManipulatorProps) => {
   const mb = useMainButton(true);
+  const mbAction = () => {
+    action();
+    mb?.hide();
+  };
 
   useEffect(() => {
     if (showMb) {
       mb?.show();
       mb?.setText(buttonText);
     }
-    return () => {
-      mb?.hide();
-    };
   }, [showMb, mb]);
 
-  useEffect(() => mb?.on("click", action), [mb, action]);
+  useEffect(() => mb?.on("click", mbAction), [mb, mbAction]);
 
   return null;
 };
