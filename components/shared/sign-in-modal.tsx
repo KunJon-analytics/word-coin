@@ -51,9 +51,9 @@ export function SignInModal({ size = "sm" }: SignInModalProps) {
             </Link>
             <DialogTitle> Sign In</DialogTitle>
             <DialogDescription className="text-center">
-              Unlock a world of words and rewards! Sign in to Word Rush to track
-              your progress, claim victories, and stay connected with the global
-              community of word hunters. Let the adventure begin!
+              🌟 Join the Word Rush Adventure! Ready to embark on a word-hunting
+              journey like no other? Sign in now and unlock a world of lexical
+              excitement! 🚀🔠
             </DialogDescription>
           </DialogHeader>
           <SignInForm />
@@ -76,9 +76,9 @@ export function SignInModal({ size = "sm" }: SignInModalProps) {
           </Link>
           <DrawerTitle> Sign In</DrawerTitle>
           <DrawerDescription className="text-center">
-            Unlock a world of words and rewards! Sign in to Word Rush to track
-            your progress, claim victories, and stay connected with the global
-            community of word hunters. Let the adventure begin!
+            🌟 Join the Word Rush Adventure! Ready to embark on a word-hunting
+            journey like no other? Sign in now and unlock a world of lexical
+            excitement! 🚀🔠
           </DrawerDescription>
         </DrawerHeader>
         <SignInForm className="px-4" />

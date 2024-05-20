@@ -14,7 +14,7 @@ export default async function IndexPage() {
       <section className="space-y-6 pb-12 pt-16 lg:py-28">
         <div className="container flex max-w-[64rem] flex-col items-center gap-5 text-center">
           <Link
-            href="https://twitter.com/codehagen"
+            href={siteConfig.links.twitter}
             className={cn(
               buttonVariants({ variant: "outline", size: "sm" }),
               "animate-fade-up opacity-0"
@@ -30,8 +30,8 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
           >
             <Balancer>
-              Budget Better, Gain More Experience{" "}
-              <span className="relative bg-gradient-to-r from-indigo-500 to-purple-500/80 bg-clip-text font-extrabold text-transparent">
+              Unleash Your Lexicon Power on{" "}
+              <span className="relative bg-gradient-to-r from-blue-500 to-blue-500/80 bg-clip-text font-extrabold text-transparent">
                 {siteConfig.name}
               </span>
             </Balancer>
@@ -42,8 +42,9 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
           >
             <Balancer>
-              Empower your financial management with AI-driven insights, making
-              tracking and optimizing your finances effortless.
+              Welcome to Word Rush, where words come alive! 🚀🔥 Embark on an
+              exhilarating word-hunting adventure and earn points faster by
+              inviting friends📚🔍
             </Balancer>
           </p>
 
@@ -59,11 +60,7 @@ export default async function IndexPage() {
                 "px-4"
               )}
             >
-              <Icons.chevrondown className="mr-2 h-4 w-4" />
-              <p>
-                <span className="hidden sm:inline-block">Your points on</span>{" "}
-                {siteConfig.name}{" "}
-              </p>
+              Invite Friends & Earn
             </GsapLink>
           </div>
         </div>
