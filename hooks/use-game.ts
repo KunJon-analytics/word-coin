@@ -50,7 +50,7 @@ function useGame(roundId: string) {
     initDataRaw ? [gameApiRoute, roundId, initDataRaw] : null,
     submitPlay,
     {
-      // the login route already provides the updated information, no need to revalidate
+      // the play route already provides the updated information, no need to revalidate
       revalidate: false,
     }
   );

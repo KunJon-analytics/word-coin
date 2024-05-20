@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 import { MainNavItem } from "@/types";
@@ -9,6 +8,8 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { Icons } from "@/components/shared/icons";
+
+import { GsapLink } from "../shared/gsap-link";
 
 interface MainNavProps {
   items?: MainNavItem[];
@@ -39,16 +40,16 @@ export function MainNav({ items, children }: MainNavProps) {
 
   return (
     <div className="flex gap-6 md:gap-10">
-      <Link href="/" className="hidden items-center space-x-2 md:flex">
+      <GsapLink href="/" className="hidden items-center space-x-2 md:flex">
         <Icons.logo />
         <span className="hidden font-urban text-xl font-bold sm:inline-block">
           {siteConfig.name}
         </span>
-      </Link>
+      </GsapLink>
       {items?.length ? (
         <nav className="hidden gap-6 md:flex">
           {items?.map((item, index) => (
-            <Link
+            <GsapLink
               key={index}
               href={item.disabled ? "#" : item.href}
               className={cn(
@@ -60,7 +61,7 @@ export function MainNav({ items, children }: MainNavProps) {
               )}
             >
               {item.title}
-            </Link>
+            </GsapLink>
           ))}
         </nav>
       ) : null}

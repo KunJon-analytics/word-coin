@@ -1,16 +1,15 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
 
 import useActiveGame from "@/hooks/use-active-game";
 
 import { Button } from "../ui/button";
 import LoadingButton from "./loading-button";
+import { GsapLink } from "./gsap-link";
 
 const ActiveGameButton = () => {
   const { activeGame, isLoading } = useActiveGame();
-  const router = useRouter();
 
   if (isLoading) {
     return <LoadingButton />;
@@ -18,15 +17,15 @@ const ActiveGameButton = () => {
 
   if (activeGame) {
     return (
-      <Button onClick={() => router.push(`/play/${activeGame.id}`)}>
-        Play Now
+      <Button asChild>
+        <GsapLink href={`/play/${activeGame.id}`}>Play Now</GsapLink>
       </Button>
     );
   }
 
   return (
-    <Button onClick={() => router.push(`/referral-task`)}>
-      Start Inviting
+    <Button asChild>
+      <GsapLink href={`/referral-task`}> Start Inviting</GsapLink>
     </Button>
   );
 };

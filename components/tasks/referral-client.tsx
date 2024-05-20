@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
+import { useInitData } from "@tma.js/sdk-react";
 
 import { LeaderboardUsers } from "@/types";
 import useUser from "@/hooks/use-user";
+import { useMounted } from "@/hooks/use-mounted";
 
 import ReferralLinkCard from "./referral-link-card";
 import ReferralStatCard from "./referral-stat-card";
@@ -18,8 +20,6 @@ import {
 import ReferralTable from "./referral-table";
 import { LoadingSkeleton } from "../shared/loading";
 import ComingSoon from "./coming-soon";
-import { useInitData } from "@tma.js/sdk-react";
-import { useMounted } from "@/hooks/use-mounted";
 import ErrorButton from "../shared/error-button";
 import { SignInModal } from "../shared/sign-in-modal";
 
@@ -33,7 +33,11 @@ const ReferralClient = ({ users }: Props) => {
   const mounted = useMounted();
 
   if (!initData || !mounted) {
-    return <ErrorButton buttonText="Ivalid Telegram User" />;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <ErrorButton buttonText="Ivalid Telegram User" />
+      </div>
+    );
   }
 
   if (isLoading) {
@@ -41,11 +45,19 @@ const ReferralClient = ({ users }: Props) => {
   }
 
   if (isError) {
-    return <ErrorButton buttonText="request Error" />;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <ErrorButton buttonText="Request Error" />
+      </div>
+    );
   }
 
   if (!user) {
-    return <SignInModal />;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <SignInModal />
+      </div>
+    );
   }
 
   return (

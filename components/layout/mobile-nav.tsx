@@ -1,11 +1,12 @@
 import * as React from "react";
-import Link from "next/link";
 
 import { MainNavItem } from "@/types";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { useLockBody } from "@/hooks/use-lock-body";
 import { Icons } from "@/components/shared/icons";
+
+import { GsapLink } from "../shared/gsap-link";
 
 interface MobileNavProps {
   items: MainNavItem[];
@@ -22,13 +23,13 @@ export function MobileNav({ items, children }: MobileNavProps) {
       )}
     >
       <div className="relative z-20 grid gap-6 rounded-md bg-popover p-4 text-popover-foreground shadow-md">
-        <Link href="/" className="flex items-center space-x-2">
+        <GsapLink href="/" className="flex items-center space-x-2">
           <Icons.logo />
           <span className="font-bold">{siteConfig.name}</span>
-        </Link>
+        </GsapLink>
         <nav className="grid grid-flow-row auto-rows-max text-sm">
           {items.map((item, index) => (
-            <Link
+            <GsapLink
               key={index}
               href={item.disabled ? "#" : item.href}
               className={cn(
@@ -37,7 +38,7 @@ export function MobileNav({ items, children }: MobileNavProps) {
               )}
             >
               {item.title}
-            </Link>
+            </GsapLink>
           ))}
         </nav>
         {children}

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/shared/icons";
 import ActiveGameButton from "@/components/shared/active-game-button";
+import { GsapLink } from "@/components/shared/gsap-link";
 
 export default async function IndexPage() {
   return (
@@ -51,7 +52,7 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
           >
             <ActiveGameButton />
-            <Link
+            <GsapLink
               href="/dashboard"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
@@ -63,7 +64,7 @@ export default async function IndexPage() {
                 <span className="hidden sm:inline-block">Your points on</span>{" "}
                 {siteConfig.name}{" "}
               </p>
-            </Link>
+            </GsapLink>
           </div>
         </div>
       </section>

@@ -19,19 +19,35 @@ import { LoadingSkeleton } from "../shared/loading";
 
 const DashboardTabs = () => {
   const initData = useInitData(true);
-  const { user, isLoading } = useUser();
+  const { user, isLoading, isError } = useUser();
   const mounted = useMounted();
 
   if (!initData || !mounted) {
-    return <ErrorButton buttonText="Ivalid Telegram User" />;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <ErrorButton buttonText="Ivalid Telegram User" />
+      </div>
+    );
   }
 
   if (isLoading) {
     return <LoadingSkeleton />;
   }
 
+  if (isError) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <ErrorButton buttonText="Request Error" />
+      </div>
+    );
+  }
+
   if (!user) {
-    return <SignInModal />;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <SignInModal />
+      </div>
+    );
   }
 
   return (

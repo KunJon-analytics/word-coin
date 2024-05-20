@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useMiniApp } from "@tma.js/sdk-react";
 
 import {
@@ -18,6 +17,7 @@ import { Icons } from "@/components/shared/icons";
 import useUser from "@/hooks/use-user";
 import LoadingButton from "@/components/shared/loading-button";
 import { SignInModal } from "@/components/shared/sign-in-modal";
+import { GsapLink } from "@/components/shared/gsap-link";
 
 import UserAvatar from "./user-avatar";
 
@@ -25,7 +25,6 @@ export function UserNav() {
   const { isLoading, user } = useUser();
   const mounted = useMounted();
   const miniApp = useMiniApp(true);
-  const router = useRouter();
 
   if (!miniApp || !mounted) {
     return <ErrorButton buttonText="No Telegram" />;
@@ -55,17 +54,23 @@ export function UserNav() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem onClick={() => router.push("/")}>
-            <Icons.home className="mr-2 h-4 w-4" />
-            <span>Home</span>
+          <DropdownMenuItem asChild>
+            <GsapLink href={"/"}>
+              <Icons.home className="mr-2 h-4 w-4" />
+              <span>Home</span>
+            </GsapLink>
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => router.push("/dashboard")}>
-            <Icons.dashboard className="mr-2 h-4 w-4" />
-            <span>Dashboard</span>
+          <DropdownMenuItem asChild>
+            <GsapLink href={"/dashboard"}>
+              <Icons.dashboard className="mr-2 h-4 w-4" />
+              <span>Dashboard</span>
+            </GsapLink>
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => router.push("/referral-task")}>
-            <Icons.users className="mr-2 h-4 w-4" />
-            <span>Referrals</span>
+          <DropdownMenuItem asChild>
+            <GsapLink href={"/referral-task"}>
+              <Icons.users className="mr-2 h-4 w-4" />
+              <span>Referrals</span>
+            </GsapLink>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
