@@ -173,10 +173,10 @@ export async function POST(
 
     // if is correct and no previous winner
     if (isCorrect && !userAttempt.round.winnerId) {
-      // (event) send message to winner and change to FINISHED, add winner + point
+      // (event) send message to winner, add winner + give winner point
       await prisma.gameRound.update({
         where: { id: roundId },
-        data: { winnerId: initData.user.id, stage: "FINISHED" },
+        data: { winnerId: initData.user.id },
       });
       await prisma.user.update({
         where: { id: initData.user.id },
