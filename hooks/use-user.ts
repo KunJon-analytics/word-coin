@@ -47,7 +47,7 @@ function useUser() {
     doLogin,
     {
       // the login route already provides the updated information, no need to revalidate
-      revalidate: false,
+      revalidate: true,
     }
   );
 

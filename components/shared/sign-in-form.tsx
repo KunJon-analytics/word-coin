@@ -9,12 +9,14 @@ import { useToast } from "../ui/use-toast";
 import FormButton from "../shared/form-button";
 import ErrorButton from "./error-button";
 import LoadingButton from "./loading-button";
+import { useRouter } from "next/navigation";
 
 type SignInFormProps = {} & React.ComponentProps<"form">;
 
 export default function SignInForm({ className }: SignInFormProps) {
   const { toast } = useToast();
   const { initDataRaw, login, loginLoading, loginError } = useUser();
+  const router = useRouter();
 
   if (!initDataRaw) {
     return (
@@ -44,6 +46,7 @@ export default function SignInForm({ className }: SignInFormProps) {
       action={async () => {
         try {
           await login();
+          router.refresh();
         } catch (error) {
           console.log(error);
           // toast error
