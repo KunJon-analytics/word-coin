@@ -22,6 +22,7 @@ export function Wrapper({ className, roundId, ...props }: CardProps) {
   const { game: wordleData, isLoading, isError } = useGame(roundId);
   const initData = useInitData(true);
   const mounted = useMounted();
+
   const winnerUsername = wordleData?.round.winner?.username;
   const winner =
     winnerUsername || wordleData?.round.winner?.firstName || "No winner";

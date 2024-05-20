@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import useUser from "@/hooks/use-user";
@@ -9,7 +10,6 @@ import { useToast } from "../ui/use-toast";
 import FormButton from "../shared/form-button";
 import ErrorButton from "./error-button";
 import LoadingButton from "./loading-button";
-import { useRouter } from "next/navigation";
 
 type SignInFormProps = {} & React.ComponentProps<"form">;
 

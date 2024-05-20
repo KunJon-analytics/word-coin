@@ -23,12 +23,16 @@ export default function Wordle({ wordleData }: Props) {
     playLoading: loading,
   } = useWordle(wordleData);
   const correctGuess = wordleData.guesses.find((guess) => guess.isCorrect);
-  const dontShow = correctGuess || turn > 5 || loading;
+  const disabled = correctGuess || turn > 5 || loading;
   return (
     <section className="wordle" id="wordle">
       <div className="wordle-bx lg:mt-4">
         <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />
-        {!dontShow && <Keypad handleClick={handleClick} usedKeys={usedKeys} />}
+        <Keypad
+          disabled={!!disabled}
+          handleClick={handleClick}
+          usedKeys={usedKeys}
+        />
       </div>
     </section>
   );
