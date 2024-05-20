@@ -12,6 +12,7 @@ import Stage from "./Stage";
 import { LoadingSkeleton } from "../shared/loading";
 import PlayCard from "./play-card";
 import Wordle from "./Wordle";
+import PopConfetti from "../shared/pop-confetti";
 
 type CardProps = React.ComponentProps<typeof Card> & {
   roundId: string;
@@ -21,10 +22,12 @@ export function Wrapper({ className, roundId, ...props }: CardProps) {
   const { game: wordleData, isLoading, isError } = useGame(roundId);
   const initData = useInitData(true);
   const mounted = useMounted();
+  const winnerUsername = wordleData?.round.winner?.username;
   const winner =
-    wordleData?.round.winner?.username ||
-    wordleData?.round.winner?.firstName ||
-    "No winner";
+    winnerUsername || wordleData?.round.winner?.firstName || "No winner";
+  const isCorrect = wordleData?.guesses.find((guess) => guess.isCorrect);
+  const isWinner =
+    winnerUsername && winnerUsername === initData?.user?.username;
 
   if (!initData || !mounted) {
     return (
@@ -68,6 +71,7 @@ export function Wrapper({ className, roundId, ...props }: CardProps) {
         <div className="col-span-12 sm:col-span-6 lg:col-span-8">
           <Wordle wordleData={wordleData} />
         </div>
+        {isCorrect && <PopConfetti isWinner={!!isWinner} />}
       </CardContent>
     </Card>
   );
