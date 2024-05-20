@@ -76,8 +76,12 @@ const ReferralClient = ({ users }: Props) => {
           <div className="flex items-center">
             <TabsList>
               <TabsTrigger value="leaderboard">Leaderboard</TabsTrigger>
-              <TabsTrigger value="referrals">Referrals</TabsTrigger>
-              <TabsTrigger value="views">Views</TabsTrigger>
+              <TabsTrigger value="referrals" disabled>
+                Referrals
+              </TabsTrigger>
+              <TabsTrigger value="views" disabled>
+                Views
+              </TabsTrigger>
             </TabsList>
           </div>
           <TabsContent value="leaderboard">
