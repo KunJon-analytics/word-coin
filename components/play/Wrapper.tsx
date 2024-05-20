@@ -54,9 +54,7 @@ export function Wrapper({ className, roundId, ...props }: CardProps) {
 
   return (
     <Card className={(cn(className), "col-span-12 pb-4")} {...props}>
-      <CardHeader className="mt-3 flex items-center justify-between px-4 sm:px-5">
-        <h2 className="font-medium tracking-wide">Word Rush</h2>
-
+      <CardHeader className="lg:mt-3 flex items-center justify-between px-4 sm:px-5">
         <div className="flex items-center space-x-4">
           <Stage
             stage={wordleData.round.stage}
@@ -69,7 +67,7 @@ export function Wrapper({ className, roundId, ...props }: CardProps) {
           />
         </div>
       </CardHeader>
-      <CardContent className="mt-3 grid grid-cols-12">
+      <CardContent className="lg:mt-3 grid grid-cols-12">
         <div className="col-span-12 sm:col-span-6 lg:col-span-8">
           <Wordle wordleData={wordleData} />
         </div>

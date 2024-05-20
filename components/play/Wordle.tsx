@@ -26,7 +26,7 @@ export default function Wordle({ wordleData }: Props) {
   const dontShow = correctGuess || turn > 5 || loading;
   return (
     <section className="wordle" id="wordle">
-      <div className="wordle-bx mt-4">
+      <div className="wordle-bx lg:mt-4">
         <Grid guesses={guesses} currentGuess={currentGuess} turn={turn} />
         {!dontShow && <Keypad handleClick={handleClick} usedKeys={usedKeys} />}
       </div>

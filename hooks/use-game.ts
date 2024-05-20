@@ -47,11 +47,11 @@ function useGame(roundId: string) {
     isMutating: playLoading,
     error: playError,
   } = useSWRMutation(
-    initDataRaw ? [gameApiRoute, roundId, initDataRaw] : null,
+    initDataRaw && mounted ? [gameApiRoute, roundId, initDataRaw] : null,
     submitPlay,
     {
       // the play route already provides the updated information, no need to revalidate
-      revalidate: false,
+      revalidate: true,
     }
   );
 

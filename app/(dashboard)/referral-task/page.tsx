@@ -18,7 +18,7 @@ export default async function ReferralDashboard() {
   });
 
   return (
-    <ScrollArea className="h-full">
+    <ScrollArea className="lg:h-full pb-4 lg:pb-0">
       <div className="flex min-h-screen w-full flex-col bg-muted/40">
         <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
           <Suspense fallback={<LoadingSkeleton />}>

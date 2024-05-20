@@ -44,10 +44,10 @@ const Referrals = ({ noOfReferrals, referralCode }: Props) => {
       <CardContent>
         <div className="text-2xl font-bold">+{noOfReferrals}</div>
         <p className="text-xs text-muted-foreground flex justify-between items-center">
-          Referral link: {referralLink.substring(0, 10)}...
+          Referral link: {referralLink.substring(0, 20)}...
           <CopyToClipboard text={referralLink} onCopy={onCopyText}>
             <Button size={"icon"} variant={"ghost"}>
-              <Icons.copy className="h-4 w-4" />
+              <Icons.copy className="h-4 w-4 ml-4 lg:ml-0" />
             </Button>
           </CopyToClipboard>
         </p>

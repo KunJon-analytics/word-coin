@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { useToast } from "@/components/ui/use-toast";
 import {
@@ -14,6 +15,7 @@ import useGame from "./use-game";
 const useWordle = (round: GameReturnType) => {
   const [currentGuess, setCurrentGuess] = useState("");
   const { toast } = useToast();
+  const router = useRouter();
   const { play, playLoading, playError } = useGame(round.roundId);
 
   const turn = round.guesses.length;
@@ -76,6 +78,7 @@ const useWordle = (round: GameReturnType) => {
   const addNewGuess = async (guess: string) => {
     await play({ guess });
     setCurrentGuess("");
+    router.refresh();
   };
 
   // handle keyup event & track current guess
