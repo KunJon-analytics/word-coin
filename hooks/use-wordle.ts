@@ -11,12 +11,14 @@ import {
 } from "@/types";
 
 import useGame from "./use-game";
+import { useHapticFeedback } from "@tma.js/sdk-react";
 
 const useWordle = (round: GameReturnType) => {
   const [currentGuess, setCurrentGuess] = useState("");
   const { toast } = useToast();
   const router = useRouter();
   const { play, playLoading, playError } = useGame(round.roundId);
+  const hapticFeedback = useHapticFeedback(true);
 
   const turn = round.guesses.length;
   const history = round.guesses.map((guess) => guess.guess);
@@ -99,6 +101,7 @@ const useWordle = (round: GameReturnType) => {
         });
 
         console.log("you used all your guesses!");
+        hapticFeedback?.notificationOccurred("error");
         return;
       }
       // do not allow duplicate words
@@ -109,6 +112,7 @@ const useWordle = (round: GameReturnType) => {
         });
 
         console.log("you already tried that word.");
+        hapticFeedback?.notificationOccurred("error");
         return;
       }
       // check word is 5 chars
@@ -118,6 +122,7 @@ const useWordle = (round: GameReturnType) => {
           description: "Word must be 5 chars!",
         });
         console.log("word must be 5 chars.");
+        hapticFeedback?.notificationOccurred("error");
         return;
       }
 
