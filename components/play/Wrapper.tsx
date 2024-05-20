@@ -28,14 +28,11 @@ export function Wrapper({ className, roundId, ...props }: CardProps) {
 
   if (!initData || !mounted) {
     return (
-      <PlayCard
-        cardTitle="Error"
-        message="There was an error while fetching the data"
-      />
+      <PlayCard cardTitle="Error" message="Please load this app on telegram." />
     );
   }
 
-  if (isLoading || !mounted) {
+  if (isLoading) {
     return <LoadingSkeleton />;
   }
 
