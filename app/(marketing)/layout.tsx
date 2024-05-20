@@ -15,7 +15,7 @@ export default async function MarketingLayout({
       <NavBar items={marketingConfig.mainNav} scroll={true} />
       <SquaresPattern />
       <main className="flex-1">{children}</main>
-      <SiteFooter className="pb-4 lg:pb-0" />
+      <SiteFooter />
     </div>
   );
 }

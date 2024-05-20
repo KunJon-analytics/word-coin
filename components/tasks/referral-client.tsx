@@ -83,12 +83,12 @@ const ReferralClient = ({ users }: Props) => {
           <TabsContent value="leaderboard">
             <Card x-chunk="dashboard-05-chunk-3">
               <CardHeader className="px-7">
-                <CardTitle>Smolecash Top Prospectors</CardTitle>
+                <CardTitle>Word Rush Top Hunters</CardTitle>
                 <CardDescription>
                   Discover who&apos;s leading the gold rush! Our leaderboard
                   showcases the trailblazers who&apos;ve referred the most
                   fellow adventurers. Keep referring to climb the ranks and
-                  strike it rich with Smolecash.
+                  strike it rich with Word Rush.
                 </CardDescription>
               </CardHeader>
               <CardContent>

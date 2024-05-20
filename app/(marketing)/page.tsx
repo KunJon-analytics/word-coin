@@ -7,24 +7,14 @@ import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/shared/icons";
 import ActiveGameButton from "@/components/shared/active-game-button";
 import { GsapLink } from "@/components/shared/gsap-link";
+import TwitterLink from "@/components/home/twitter-link";
 
 export default async function IndexPage() {
   return (
     <>
       <section className="space-y-6 pb-12 pt-16 lg:py-28">
         <div className="container flex max-w-[64rem] flex-col items-center gap-5 text-center">
-          <Link
-            href={siteConfig.links.twitter}
-            className={cn(
-              buttonVariants({ variant: "outline", size: "sm" }),
-              "animate-fade-up opacity-0"
-            )}
-            style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
-            target="_blank"
-          >
-            Introducing on <Icons.twitter className="ml-2 h-4 w-4" />
-          </Link>
-
+          <TwitterLink />
           <h1
             className="animate-fade-up font-urban text-4xl font-extrabold tracking-tight opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
             style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
