@@ -33,12 +33,14 @@ import {
   Medal,
   X,
   Users,
+  Coins,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
 
 export const Icons = {
   add: Plus,
+  coins: Coins,
   copy: Copy,
   users: Users,
   loading: Loader2,

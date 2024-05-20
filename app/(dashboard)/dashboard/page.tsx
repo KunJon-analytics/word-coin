@@ -1,15 +1,8 @@
 import { Suspense } from "react";
-import dynamic from "next/dynamic";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { LoadingSkeleton } from "@/components/shared/loading";
-
-const DashboardTabs = dynamic(
-  () => import("@/components/dashboard/dashboard-tabs"),
-  {
-    ssr: false,
-  }
-);
+import DashboardTabs from "@/components/dashboard/dashboard-tabs";
 
 export const metadata = {
   title: "Dashboard",
