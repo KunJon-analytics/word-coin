@@ -2,11 +2,11 @@
 
 import { usePathname } from "next/navigation";
 import { Dispatch, SetStateAction } from "react";
+import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { DashboardNavItem } from "@/types";
 import { Icons } from "@/components/shared/icons";
-import { GsapLink } from "@/components/shared/gsap-link";
 
 interface DashboardNavProps {
   items: DashboardNavItem[];
@@ -26,7 +26,7 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
         const Icon = Icons[item.icon || "arrowRight"];
         return (
           item.href && (
-            <GsapLink
+            <Link
               key={index}
               href={item.disabled ? "/" : item.href}
               onClick={() => {
@@ -43,7 +43,7 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
                 <Icon className="mr-2 h-4 w-4" />
                 <span>{item.title}</span>
               </span>
-            </GsapLink>
+            </Link>
           )
         );
       })}

@@ -4,9 +4,7 @@ import Balancer from "react-wrap-balancer";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/shared/icons";
 import ActiveGameButton from "@/components/shared/active-game-button";
-import { GsapLink } from "@/components/shared/gsap-link";
 import TwitterLink from "@/components/home/twitter-link";
 
 export default async function IndexPage() {
@@ -43,7 +41,7 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
           >
             <ActiveGameButton />
-            <GsapLink
+            <Link
               href="/dashboard"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
@@ -51,7 +49,7 @@ export default async function IndexPage() {
               )}
             >
               Invite Friends & Earn
-            </GsapLink>
+            </Link>
           </div>
         </div>
       </section>

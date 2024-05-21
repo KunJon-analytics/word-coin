@@ -2,14 +2,13 @@
 
 import * as React from "react";
 import { useSelectedLayoutSegment } from "next/navigation";
+import Link from "next/link";
 
 import { MainNavItem } from "@/types";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { Icons } from "@/components/shared/icons";
-
-import { GsapLink } from "../shared/gsap-link";
 
 interface MainNavProps {
   items?: MainNavItem[];
@@ -40,16 +39,16 @@ export function MainNav({ items, children }: MainNavProps) {
 
   return (
     <div className="flex gap-6 md:gap-10">
-      <GsapLink href="/" className="hidden items-center space-x-2 md:flex">
+      <Link href="/" className="hidden items-center space-x-2 md:flex">
         <Icons.logo />
         <span className="hidden font-urban text-xl font-bold sm:inline-block">
           {siteConfig.name}
         </span>
-      </GsapLink>
+      </Link>
       {items?.length ? (
         <nav className="hidden gap-6 md:flex">
           {items?.map((item, index) => (
-            <GsapLink
+            <Link
               key={index}
               href={item.disabled ? "#" : item.href}
               className={cn(
@@ -61,7 +60,7 @@ export function MainNav({ items, children }: MainNavProps) {
               )}
             >
               {item.title}
-            </GsapLink>
+            </Link>
           ))}
         </nav>
       ) : null}

@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 import useActiveGame from "@/hooks/use-active-game";
 
 import { Button } from "../ui/button";
 import LoadingButton from "./loading-button";
-import { GsapLink } from "./gsap-link";
 
 const ActiveGameButton = () => {
   const { activeGame, isLoading } = useActiveGame();
@@ -18,14 +18,14 @@ const ActiveGameButton = () => {
   if (activeGame) {
     return (
       <Button asChild>
-        <GsapLink href={`/play/${activeGame.id}`}>Play Now</GsapLink>
+        <Link href={`/play/${activeGame.id}`}>Play Now</Link>
       </Button>
     );
   }
 
   return (
     <Button asChild>
-      <GsapLink href={`/referral-task`}> Start Inviting</GsapLink>
+      <Link href={`/referral-task`}> Start Inviting</Link>
     </Button>
   );
 };

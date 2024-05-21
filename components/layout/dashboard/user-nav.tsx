@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMiniApp } from "@tma.js/sdk-react";
 
 import {
@@ -17,7 +18,6 @@ import { Icons } from "@/components/shared/icons";
 import useUser from "@/hooks/use-user";
 import LoadingButton from "@/components/shared/loading-button";
 import { SignInModal } from "@/components/shared/sign-in-modal";
-import { GsapLink } from "@/components/shared/gsap-link";
 
 import UserAvatar from "./user-avatar";
 
@@ -55,22 +55,22 @@ export function UserNav() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <GsapLink href={"/"}>
+            <Link href={"/"}>
               <Icons.home className="mr-2 h-4 w-4" />
               <span>Home</span>
-            </GsapLink>
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <GsapLink href={"/dashboard"}>
+            <Link href={"/dashboard"}>
               <Icons.dashboard className="mr-2 h-4 w-4" />
               <span>Dashboard</span>
-            </GsapLink>
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <GsapLink href={"/referral-task"}>
+            <Link href={"/referral-task"}>
               <Icons.users className="mr-2 h-4 w-4" />
               <span>Referrals</span>
-            </GsapLink>
+            </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
