@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { MainButtonEventListener, useMainButton } from "@tma.js/sdk-react";
+import { useMainButton } from "@tma.js/sdk-react";
 
 import useActiveGame from "@/hooks/use-active-game";
 
@@ -10,16 +10,16 @@ type SiteMainBtnProps = { buttonText: string; buttonLink: `/${string}` };
 
 const SiteMainBtn = ({ buttonText, buttonLink }: SiteMainBtnProps) => {
   const { activeGame } = useActiveGame();
-  const router = useRouter();
+  const { push } = useRouter();
   const mainButton = useMainButton(true);
 
-  const goToGame: MainButtonEventListener<"click"> = () => {
-    if (activeGame) {
-      router.push(`/play/${activeGame.id}`);
+  const goToGame = useCallback(() => {
+    if (activeGame?.id) {
+      push(`/play/${activeGame.id}`);
     } else {
-      router.push(buttonLink);
+      push(buttonLink);
     }
-  };
+  }, [activeGame?.id, buttonLink, push]);
 
   useEffect(() => {
     if (activeGame) {
@@ -29,7 +29,7 @@ const SiteMainBtn = ({ buttonText, buttonLink }: SiteMainBtnProps) => {
     }
 
     return mainButton?.on("click", goToGame);
-  }, [activeGame, mainButton]);
+  }, [activeGame?.id, mainButton, buttonText, goToGame]);
 
   return null;
 };
