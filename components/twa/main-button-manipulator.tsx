@@ -1,31 +1,23 @@
+"use client";
+
 import { useMainButton } from "@tma.js/sdk-react";
-import React, { useEffect } from "react";
+import { useParams, usePathname } from "next/navigation";
+import { useEffect } from "react";
 
-type MainButtonManipulatorProps = {
-  action: () => void;
-  showMb?: boolean;
-  buttonText: string;
-};
-
-const MainButtonManipulator = ({
-  action,
-  showMb,
-  buttonText,
-}: MainButtonManipulatorProps) => {
+const MainButtonManipulator = () => {
+  const pathname = usePathname();
+  const { gameRoundId } = useParams<{ gameRoundId?: string }>();
   const mb = useMainButton(true);
-  const mbAction = () => {
-    action();
-    mb?.hide();
-  };
 
   useEffect(() => {
-    if (showMb) {
-      mb?.show();
-      mb?.setText(buttonText);
-    }
-  }, [showMb, mb]);
+    const routes = ["/", "/dashboard", "/about", "/referral-task"];
 
-  useEffect(() => mb?.on("click", mbAction), [mb, mbAction]);
+    if (routes.includes(pathname) || !!gameRoundId) {
+      mb?.show();
+    } else {
+      mb?.hide();
+    }
+  }, [pathname, mb, gameRoundId]);
 
   return null;
 };
