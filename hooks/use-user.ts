@@ -35,7 +35,8 @@ function useUser() {
 
   const { data, error, isLoading } = useSWR(
     initDataRaw ? [userApiRoute, initDataRaw] : null,
-    getUser
+    getUser,
+    { refreshInterval: 60000 * 5 }
   );
 
   const {
