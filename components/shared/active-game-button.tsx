@@ -15,14 +15,6 @@ const ActiveGameButton = () => {
   const router = useRouter();
   const mainButton = useMainButton(true);
 
-  const goToGame = useCallback(() => {
-    if (activeGame) {
-      router.push(`/play/${activeGame.id}`);
-    } else {
-      router.push("/dashboard");
-    }
-  }, [activeGame]);
-
   useEffect(() => {
     if (!activeGame) {
       mainButton?.setText("View Points");
@@ -31,7 +23,16 @@ const ActiveGameButton = () => {
     }
   }, [activeGame, mainButton]);
 
-  useEffect(() => mainButton?.on("click", goToGame), [mainButton, goToGame]);
+  useEffect(() => {
+    const goToGame = () => {
+      if (activeGame) {
+        router.push(`/play/${activeGame.id}`);
+      } else {
+        router.push("/dashboard");
+      }
+    };
+    return mainButton?.on("click", goToGame);
+  }, [mainButton, activeGame, router]);
 
   if (isLoading) {
     return <LoadingButton />;
