@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import ActiveGameButton from "@/components/shared/active-game-button";
 import TwitterLink from "@/components/home/twitter-link";
+import SiteMainBtn from "@/components/twa/site-main-btn";
 
 export default async function IndexPage() {
   return (
@@ -52,6 +53,7 @@ export default async function IndexPage() {
             </Link>
           </div>
         </div>
+        <SiteMainBtn buttonLink="/dashboard" buttonText="Your Points" />
       </section>
     </>
   );
