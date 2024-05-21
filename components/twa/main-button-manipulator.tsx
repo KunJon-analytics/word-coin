@@ -10,14 +10,14 @@ const MainButtonManipulator = () => {
   const mb = useMainButton(true);
 
   useEffect(() => {
-    const routes = ["/", "/dashboard", "/about", "/referral-task"];
+    const routes = ["/"];
 
-    if (routes.includes(pathname) || !!gameRoundId) {
+    if (routes.includes(pathname)) {
       mb?.show();
     } else {
       mb?.hide();
     }
-  }, [pathname, mb, gameRoundId]);
+  }, [pathname, mb]);
 
   return null;
 };

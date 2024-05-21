@@ -11,6 +11,7 @@ import {
 import { useEffect } from "react";
 
 import BackButtonManipulator from "./back-button-manipulator";
+import MainButtonManipulator from "./main-button-manipulator";
 
 type TwaThemeProps = { children: React.ReactNode };
 
@@ -43,6 +44,7 @@ const TwaTheme = ({ children }: TwaThemeProps) => {
   return (
     <>
       <BackButtonManipulator />
+      <MainButtonManipulator />
       {children}
     </>
   );
