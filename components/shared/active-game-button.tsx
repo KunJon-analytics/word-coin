@@ -24,15 +24,12 @@ const ActiveGameButton = () => {
   }, [activeGame]);
 
   useEffect(() => {
-    if (!activeGame && isLoading) {
-      mainButton?.disable();
-      mainButton?.showLoader();
-    } else if (!activeGame && !isLoading) {
+    if (!activeGame) {
       mainButton?.setText("View Points");
     } else {
       mainButton?.setText("Play Now!!!");
     }
-  }, [isLoading, activeGame, mainButton]);
+  }, [activeGame, mainButton]);
 
   useEffect(() => mainButton?.on("click", goToGame), [mainButton, goToGame]);
 
