@@ -20,7 +20,7 @@
     --secondary-foreground: var(--tg-theme-button-text-color, #ffffff);
 
     --muted: var(--tg-theme-hint-color, #707579);
-    --muted-foreground: var(--tg-theme-hint-color, #ffffff);
+    --muted-foreground: var(--tg-theme-text-color, #ffffff);
 
     --accent: var(--tg-theme-accent-text-color);
     --accent-foreground: var(--tg-theme-button-text-color, #ffffff);
