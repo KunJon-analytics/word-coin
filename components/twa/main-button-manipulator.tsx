@@ -18,7 +18,7 @@ const MainButtonManipulator = () => {
       "/about/how-to-play",
     ];
 
-    if (routes.includes(pathname)) {
+    if (routes.includes(pathname) || !!gameRoundId) {
       mb?.show();
     } else {
       mb?.hide();
