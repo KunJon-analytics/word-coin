@@ -7,62 +7,32 @@
     --background: var(--tg-theme-bg-color, #ffffff);
     --foreground: var(--tg-theme-text-color, #000000);
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card: var(--tg-theme-bg-color, #ffffff);
+    --card-foreground: var(--tg-theme-text-color, #000000);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+    --popover: var(--tg-theme-bg-color, #ffffff);
+    --popover-foreground: var(--tg-theme-text-color, #000000);
 
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+    --primary: var(--tg-theme-button-color, #3390ec);
+    --primary-foreground: var(--tg-theme-button-text-color, #ffffff);
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary: var(--tg-theme-secondary-bg-color, #ffffff);
+    --secondary-foreground: var(--tg-theme-button-color, #3390ec);
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+    --muted: var(--tg-theme-hint-color, #707579);
+    --muted-foreground: var(--tg-theme-button-text-color, #ffffff);
 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --accent: var(--tg-theme-accent-text-color);
+    --accent-foreground: var(--tg-theme-button-color, #3390ec);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: var(--tg-theme-destructive-text-color);
+    --destructive-foreground: var(--tg-theme-button-text-color, #ffffff);
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --border: var(--tg-theme-hint-color, #707579);
+    --input: var(--tg-theme-hint-color, #707579);
+    --ring: var(--tg-theme-text-color, #000000);
 
     --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: var(--tg-theme-bg-color, #ffffff);
-    --foreground: var(--tg-theme-text-color, #000000);
-
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
   }
 }
 
