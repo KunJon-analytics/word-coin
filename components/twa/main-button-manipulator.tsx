@@ -10,7 +10,7 @@ const MainButtonManipulator = () => {
   const mb = useMainButton(true);
 
   useEffect(() => {
-    const routes = ["/"];
+    const routes = ["/", "/about"];
 
     if (routes.includes(pathname)) {
       mb?.show();
