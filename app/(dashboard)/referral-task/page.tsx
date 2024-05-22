@@ -4,6 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import ReferralClient from "@/components/tasks/referral-client";
 import prisma from "@/lib/prisma";
 import { LoadingSkeleton } from "@/components/shared/loading";
+import ReferralMbWrapper from "@/components/tasks/referral-mb-wrapper";
 
 export default async function ReferralDashboard() {
   const users = await prisma.user.findMany({
@@ -21,6 +22,7 @@ export default async function ReferralDashboard() {
     <ScrollArea className="lg:h-full pb-4 lg:pb-0">
       <div className="flex min-h-screen w-full flex-col bg-muted/40">
         <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+          <ReferralMbWrapper />
           <Suspense fallback={<LoadingSkeleton />}>
             <ReferralClient users={users} />
           </Suspense>

@@ -12,7 +12,7 @@ const ReferralMbWrapper = () => {
   const { user } = useUser();
   const { toast } = useToast();
 
-  const pageAction = async () => {
+  const pageAction = () => {
     if (!user) {
       toast({
         title: "Unauthenticated",
@@ -22,10 +22,11 @@ const ReferralMbWrapper = () => {
       return;
     }
     const referralLink = getReferralLink(user.id);
-    await navigator?.clipboard.writeText(referralLink);
-    toast({
-      title: "Referral link Copied",
-      description: referralLink,
+    navigator?.clipboard.writeText(referralLink).then(() => {
+      toast({
+        title: "Referral link Copied",
+        description: referralLink,
+      });
     });
   };
 
