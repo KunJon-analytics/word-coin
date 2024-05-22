@@ -12,22 +12,27 @@ const ReferralMbWrapper = () => {
   const { user } = useUser();
   const { toast } = useToast();
 
-  const pageAction = () => {
+  const pageAction = async () => {
     if (!user) {
       toast({
         title: "Unauthenticated",
         description: "Please Sign In to view your points and link",
+        variant: "destructive",
       });
       return;
     }
     const referralLink = getReferralLink(user.id);
-    return navigator?.clipboard.writeText(referralLink);
+    await navigator?.clipboard.writeText(referralLink);
+    toast({
+      title: "Referral link Copied",
+      description: referralLink,
+    });
   };
 
   return (
     <SignInMainButton
       pageAction={pageAction}
-      pageActionText={!user ? "Sign In" : "Copy Referral Link"}
+      pageActionText={!user ? "Sign In" : "Invite Now"}
     />
   );
 };

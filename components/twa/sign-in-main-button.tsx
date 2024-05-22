@@ -49,7 +49,7 @@ const SignInMainButton = ({
     }
 
     return pageAction();
-  }, [isErrorButton, buttonLoading, user, login, pageAction]);
+  }, [isErrorButton, buttonLoading, user, login, pageAction, refresh, toast]);
 
   useEffect(() => {
     if (buttonLoading) {

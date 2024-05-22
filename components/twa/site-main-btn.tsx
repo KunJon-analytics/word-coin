@@ -22,7 +22,7 @@ const SiteMainBtn = ({ buttonText, buttonLink }: SiteMainBtnProps) => {
   }, [activeGame?.id, buttonLink, push]);
 
   useEffect(() => {
-    if (activeGame) {
+    if (activeGame?.id) {
       mainButton?.setParams({ text: "Play Now!!!" });
     } else {
       mainButton?.setParams({ text: buttonText });

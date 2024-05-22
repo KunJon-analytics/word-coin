@@ -14,7 +14,7 @@ const PopConfetti = ({ isWinner }: PopConfettiProps) => {
     if (hapticFeedback) {
       hapticFeedback.notificationOccurred("success");
     }
-  }, []);
+  }, [hapticFeedback]);
 
   if (!viewPort || !hapticFeedback) {
     return null;
