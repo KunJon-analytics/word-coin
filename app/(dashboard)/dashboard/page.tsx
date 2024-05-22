@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { LoadingSkeleton } from "@/components/shared/loading";
 import DashboardTabs from "@/components/dashboard/dashboard-tabs";
+import DashboardMbWrapper from "@/components/dashboard/dashboard-mb-wrapper";
 
 export const metadata = {
   title: "Dashboard",
@@ -19,6 +20,7 @@ export default async function DashboardPage() {
             Hi, Welcome back 👋
           </h2>
         </div>
+        <DashboardMbWrapper />
         <Suspense fallback={<LoadingSkeleton />}>
           <DashboardTabs />
         </Suspense>

@@ -43,7 +43,7 @@ export default async function IndexPage() {
           >
             <ActiveGameButton />
             <Link
-              href="/dashboard"
+              href="/referral-task"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "px-4"
