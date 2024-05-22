@@ -20,7 +20,7 @@ export default async function IndexPage() {
           >
             <Balancer>
               Unleash Your Lexicon Power on{" "}
-              <span className="relative bg-gradient-to-r from-blue-500 to-blue-500/80 bg-clip-text font-extrabold text-transparent">
+              <span className="relative bg-gradient-to-r from-primary to-primary/80 bg-clip-text font-extrabold text-transparent">
                 {siteConfig.name}
               </span>
             </Balancer>

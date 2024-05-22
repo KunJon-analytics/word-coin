@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { ModeToggle } from "@/components/theme/mode-toggle";
 import { Icons } from "@/components/shared/icons";
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
@@ -14,7 +13,6 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             &copy; 2024 Word Rush. All rights reserved.
           </p>
         </div>
-        <ModeToggle />
       </div>
     </footer>
   );

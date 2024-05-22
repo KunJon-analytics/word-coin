@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/shared/icons";
-import { ModeToggle } from "@/components/theme/mode-toggle";
 
 import { MobileSidebar } from "./mobile-sidebar";
 import { UserNav } from "./user-nav";
@@ -19,10 +18,8 @@ export default async function Header() {
         <div className={cn("block lg:!hidden")}>
           <MobileSidebar />
         </div>
-
         <div className="flex items-center gap-2">
           <UserNav />
-          <ModeToggle />
         </div>
       </nav>
     </div>
