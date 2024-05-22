@@ -43,10 +43,6 @@ export default function RootLayout({
           </ThemeProvider>
         </TwaProvider>
         <Analytics />
-        <Script
-          src="https://telegram.org/js/telegram-web-app.js"
-          strategy="beforeInteractive"
-        />
       </body>
     </html>
   );
