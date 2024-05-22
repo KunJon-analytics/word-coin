@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 
 import useActiveGame from "@/hooks/use-active-game";
-import { useRouter } from "next/navigation";
 
 import SignInMainButton from "../twa/sign-in-main-button";
 

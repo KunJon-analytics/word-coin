@@ -2,7 +2,7 @@ import React from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { Copy } from "lucide-react";
 
-import { env } from "@/env.mjs";
+import { getReferralLink } from "@/lib/utils";
 import {
   Card,
   CardDescription,
@@ -17,7 +17,7 @@ import { useToast } from "../ui/use-toast";
 type Props = { referralCode: number };
 
 const ReferralLinkCard = ({ referralCode }: Props) => {
-  const referralLink = `${env.NEXT_PUBLIC_TELEGRAM_URL}?startapp=${referralCode}`;
+  const referralLink = getReferralLink(referralCode);
 
   const { toast } = useToast();
 

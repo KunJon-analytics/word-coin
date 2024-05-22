@@ -3,7 +3,7 @@
 import React from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-import { env } from "@/env.mjs";
+import { getReferralLink } from "@/lib/utils";
 
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { useToast } from "../ui/use-toast";
@@ -13,7 +13,7 @@ import { Icons } from "../shared/icons";
 type Props = { noOfReferrals: number; referralCode: number };
 
 const Referrals = ({ noOfReferrals, referralCode }: Props) => {
-  const referralLink = `${env.NEXT_PUBLIC_TELEGRAM_URL}?startapp=${referralCode}`;
+  const referralLink = getReferralLink(referralCode);
   const { toast } = useToast();
   const onCopyText = () => {
     toast({
