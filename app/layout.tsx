@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme/theme-provider";
@@ -22,9 +23,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <script src="https://telegram.org/js/telegram-web-app.js" />
-      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -45,6 +43,10 @@ export default function RootLayout({
           </ThemeProvider>
         </TwaProvider>
         <Analytics />
+        <Script
+          src="https://telegram.org/js/telegram-web-app.js"
+          strategy="beforeInteractive"
+        />
       </body>
     </html>
   );
