@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
-import Script from "next/script";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme/theme-provider";

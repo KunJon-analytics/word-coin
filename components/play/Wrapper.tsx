@@ -37,7 +37,11 @@ export function Wrapper({ className, roundId, ...props }: CardProps) {
   }
 
   if (isLoading) {
-    return <LoadingSkeleton />;
+    return (
+      <div className="col-span-12 pb-4">
+        <LoadingSkeleton />
+      </div>
+    );
   }
 
   if (isError) {
