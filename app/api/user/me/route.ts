@@ -45,6 +45,7 @@ export async function POST() {
         referrer: initData.startParam
           ? parseInt(initData.startParam)
           : undefined,
+        points: 10,
       },
     });
 
