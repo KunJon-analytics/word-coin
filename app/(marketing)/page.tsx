@@ -19,10 +19,10 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
           >
             <Balancer>
-              Unleash Your Lexicon Power on{" "}
               <span className="relative bg-gradient-to-r from-primary to-primary/20 bg-clip-text font-extrabold text-transparent">
-                {siteConfig.name}
-              </span>
+                {siteConfig.name}:
+              </span>{" "}
+              Play, Earn, Prosper!
             </Balancer>
           </h1>
 
@@ -31,9 +31,9 @@ export default async function IndexPage() {
             style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
           >
             <Balancer>
-              Welcome to Word Rush, where words come alive! 🚀🔥 Embark on an
-              exhilarating word-hunting adventure and earn points faster by
-              inviting friends📚🔍
+              🚀 Play Word Rush, earn points, and convert them to valuable
+              tokens! Share your unique referral code with friends to multiply
+              your points. Let{"'"}s turn words into wealth! 💸🔠
             </Balancer>
           </p>
 
