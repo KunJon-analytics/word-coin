@@ -3,9 +3,8 @@ import Balancer from "react-wrap-balancer";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import ActiveGameButton from "@/components/shared/active-game-button";
-import TwitterLink from "@/components/home/twitter-link";
 import SiteMainBtn from "@/components/twa/site-main-btn";
 
 export default async function IndexPage() {
@@ -13,7 +12,15 @@ export default async function IndexPage() {
     <>
       <section className="space-y-6 pb-12 pt-16 lg:py-28">
         <div className="container flex max-w-[64rem] flex-col items-center gap-5 text-center">
-          <TwitterLink />
+          <Button
+            asChild
+            variant={"outline"}
+            size={"sm"}
+            className="animate-fade-up opacity-0"
+            style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
+          >
+            <Link href={"/about"}>Learn More</Link>
+          </Button>
           <h1
             className="animate-fade-up font-urban text-4xl font-extrabold tracking-tight opacity-0 sm:text-5xl md:text-6xl lg:text-7xl"
             style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
