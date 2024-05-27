@@ -21,6 +21,6 @@ export async function fetchJson<JSON = unknown>(
 }
 
 export const getReferralLink = (referralCode: number) => {
-  const referralLink = `${env.NEXT_PUBLIC_TELEGRAM_URL}?startattach=${referralCode}`;
+  const referralLink = `${env.NEXT_PUBLIC_TELEGRAM_URL}?startapp=${referralCode}`;
   return referralLink;
 };
