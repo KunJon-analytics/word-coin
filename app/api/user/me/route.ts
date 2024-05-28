@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { parse, validate } from "@tma.js/init-data-node";
 
@@ -52,7 +52,7 @@ export async function POST() {
     if (initData.startParam) {
       await prisma.user.update({
         where: { id: parseInt(initData.startParam) },
-        data: { noOfReferrals: { increment: 1 } },
+        data: { noOfReferrals: { increment: 1 }, points: { increment: 10 } },
       });
     }
 
