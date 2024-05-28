@@ -12,7 +12,7 @@ datasource db {
 /// A user
 model User {
   /// the unique user id returned by Telegram
-  id            Int     @id
+  id            Float   @id
   /// the user firstname returned by Telegram
   firstName     String
   /// the user username returned by Telegram
@@ -45,9 +45,9 @@ model GameRound {
   stage RoundStage @default(QUEUED)
 
   /// the winner of the round
-  winner   User? @relation(fields: [winnerId], references: [id])
+  winner   User?  @relation(fields: [winnerId], references: [id])
   /// the id of the round winner
-  winnerId Int?
+  winnerId Float?
 
   /// attempts by users for this round
   attempts UserAttempt[]
@@ -64,9 +64,9 @@ model UserAttempt {
   id String @id @default(uuid())
 
   /// the user
-  user   User @relation(fields: [userId], references: [id])
+  user   User  @relation(fields: [userId], references: [id])
   /// the id of the user
-  userId Int
+  userId Float
 
   /// the game round
   round   GameRound @relation(fields: [roundId], references: [id])
