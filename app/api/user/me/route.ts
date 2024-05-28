@@ -50,7 +50,10 @@ export async function POST() {
       },
     });
 
-    if (initData.startParam) {
+    if (
+      initData.startParam &&
+      parseInt(initData.startParam) !== initData.user.id
+    ) {
       await prisma.user.update({
         where: { id: parseInt(initData.startParam) },
         data: { noOfReferrals: { increment: 1 }, points: { increment: 10 } },
