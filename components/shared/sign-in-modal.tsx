@@ -41,7 +41,7 @@ export function SignInModal({ size = "sm" }: SignInModalProps) {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <Button className="px-3" variant="default" size={size}>
-            Play Now!
+            Sign In!
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
@@ -66,7 +66,7 @@ export function SignInModal({ size = "sm" }: SignInModalProps) {
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <Button className="px-3" variant="default" size={size}>
-          Play Now!
+          Sign In!
         </Button>
       </DrawerTrigger>
       <DrawerContent>
