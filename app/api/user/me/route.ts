@@ -27,6 +27,7 @@ export async function POST() {
   const initData = parse(initDataRaw);
 
   if (!initData.user) {
+    console.log("[LOGIN_SERVER]", "No Initdata user");
     return new NextResponse(null, { status: 401 });
   }
 
@@ -84,6 +85,7 @@ export async function GET() {
   const initData = parse(initDataRaw);
 
   if (!initData.user) {
+    console.log("[GET_USER]", "No Initdata user");
     return new NextResponse(null, { status: 401 });
   }
 
